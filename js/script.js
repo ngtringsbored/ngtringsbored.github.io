@@ -1,6 +1,6 @@
 $(function () {
 	const context = new window.AudioContext();
-	$("body").addClass("stop-scrolling");
+	// $("body").addClass("stop-scrolling");
 
 	const confettiShower = [];
 	const numConfettis = 300;
