@@ -1,6 +1,6 @@
 $(function () {
 	const context = new window.AudioContext();
-  $('body').addClass('stop-scrolling')
+	$("body").addClass("stop-scrolling");
 
 	const confettiShower = [];
 	const numConfettis = 300;
@@ -69,61 +69,46 @@ $(function () {
 		$(".clue2").addClass("text-animation");
 		$(".cake-overlay").hide();
 	});
-	function playFile(filepath) {
+
+	$(".candle").click(function () {
+		let url = $("#player").prop("src");
 		$(".fire").show();
 		$("#pending").show();
-		// see https://jakearchibald.com/2016/sounds-fun/
-		// Fetch the file
-		fetch(filepath)
-			// Read it into memory as an arrayBuffer
-			.then((response) => response.arrayBuffer())
-			// Turn it from mp3/aac/whatever into raw audio data
-			.then((arrayBuffer) => context.decodeAudioData(arrayBuffer))
-			.then((audioBuffer) => {
-				// Now we're ready to play!
-				const soundSource = context.createBufferSource();
-				soundSource.buffer = audioBuffer;
-				soundSource.connect(context.destination);
-				soundSource.start();
-				animateConfetti();
-				$(".fire").hide();
-				$(".candle").hide();
-				$(".cherry").show();
-				$(".hbd").show();
-				$(".clue2").hide();
-				$(".cherry").addClass("fall");
-				$(".hbd").addClass("text-animation");
-				$("#pending").hide();
-				$("#text-content").show();
-				let scrollBottom = $(window).scrollTop() + $(window).height();
-				setTimeout(function () {
-					console.log(scrollBottom);
-					$(".img-love").show();
-					$("html,body").animate({ scrollTop: scrollBottom }, 1500);
-					let scrollBottom1 =
-						$(window).scrollTop() +
-						$(window).height() +
-						$(window).height();
-					setTimeout(function () {
-						console.log(scrollBottom1);
-						$("html,body").animate(
-							{ scrollTop: scrollBottom1 },
-							1500
-						);
-						setTimeout(function () {
-							$("html,body").animate({ scrollTop: 0 }, 1500);
-              $("#text-content").hide();
-              $("#text-content").html('<i class="fa fa-heart" aria-hidden="true"></i> Love u to the moon and back	<i class="fa fa-heart" aria-hidden="true"></i> ');
-              setTimeout(function(){
-                $("#text-content").show();
-              }, 1500)
-						}, 5000);
-					}, 5000);
-				}, 10000);
-			});
-	}
-	$(".candle").click(function () {
-		playFile("https://sfg.s3-ap-northeast-1.amazonaws.com/pfuLGHKaspTKKLGe64HrpocSanclj5otwRFRfORq.mp3");
+		setTimeout(function(){
+      $("#player").prop("src", url.replace("&mute=1", ""));
+      animateConfetti();
+      $(".fire").hide();
+      $(".candle").hide();
+      $(".cherry").show();
+      $(".hbd").show();
+      $(".clue2").hide();
+      $(".cherry").addClass("fall");
+      $(".hbd").addClass("text-animation");
+      $("#pending").hide();
+      $("#text-content").show();
+      let scrollBottom = $(window).scrollTop() + $(window).height();
+      setTimeout(function () {
+        console.log(scrollBottom);
+        $(".img-love").show();
+        $("html,body").animate({ scrollTop: scrollBottom }, 1500);
+        let scrollBottom1 =
+          $(window).scrollTop() + $(window).height() + $(window).height();
+        setTimeout(function () {
+          console.log(scrollBottom1);
+          $("html,body").animate({ scrollTop: scrollBottom1 }, 1500);
+          setTimeout(function () {
+            $("html,body").animate({ scrollTop: 0 }, 1500);
+            $("#text-content").hide();
+            $("#text-content").html(
+              '<i class="fa fa-heart" aria-hidden="true"></i> Love u to the moon and back	<i class="fa fa-heart" aria-hidden="true"></i> '
+            );
+            setTimeout(function () {
+              $("#text-content").show();
+            }, 1500);
+          }, 5000);
+        }, 5000);
+      }, 10000);
+    }, 3000)
 		$(this).off("click");
 	});
 });
