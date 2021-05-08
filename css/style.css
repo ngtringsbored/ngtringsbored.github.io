@@ -14,7 +14,7 @@ section#wrap-cake{height: 100vh; display: flex; justify-content: center; flex-di
 .fire:nth-child(3){bottom: 0; right: 0;}
 .fire:nth-child(4){bottom: 0; left: 0;}
 .img-love{text-align: center;}
-.img-love img{max-width: 300px;}
+.img-love img{max-width: 375px;}
 .clue {
 	text-align: center;
 	white-space: nowrap;
