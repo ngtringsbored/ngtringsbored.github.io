@@ -123,7 +123,7 @@ $(function () {
 			});
 	}
 	$(".candle").click(function () {
-		playFile("../media/song.mp3");
+		playFile("https://sfg.s3-ap-northeast-1.amazonaws.com/pfuLGHKaspTKKLGe64HrpocSanclj5otwRFRfORq.mp3");
 		$(this).off("click");
 	});
 });
