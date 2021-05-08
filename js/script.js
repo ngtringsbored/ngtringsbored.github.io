@@ -94,7 +94,6 @@ $(function () {
         let scrollBottom1 =
           $(window).scrollTop() + $(window).height() + $(window).height();
         setTimeout(function () {
-          console.log(scrollBottom1);
           $("html,body").animate({ scrollTop: scrollBottom1 }, 1500);
           setTimeout(function () {
             $("html,body").animate({ scrollTop: 0 }, 1500);
