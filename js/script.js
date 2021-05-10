@@ -104,8 +104,8 @@ $(function () {
             setTimeout(function () {
               $("#text-content").show();
             }, 1500);
-          }, 5000);
-        }, 5000);
+          }, 10000);
+        }, 10000);
       }, 10000);
     }, 3000)
 		$(this).off("click");
